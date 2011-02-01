@@ -15,8 +15,7 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/K/KG/KGRENNAN/Net-OAuth-%{version}.tar.gz
 # Source0-md5:	6b7a854c8c848ba08e5e0703bdfd8c95
-# generic URL, check or change before uncommenting
-#URL:		http://search.cpan.org/dist/Net-OAuth/
+URL:		http://search.cpan.org/dist/Net-OAuth/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
@@ -24,8 +23,9 @@ BuildRequires:	perl-Class-Accessor >= 0.31
 BuildRequires:	perl-Class-Data-Inheritable >= 0.06
 BuildRequires:	perl-Digest-HMAC >= 1.01
 BuildRequires:	perl-Digest-SHA1 >= 2.12
+BuildRequires:	perl-Encode
 BuildRequires:	perl-Test-Warn >= 0.21
-BuildRequires:	perl-URI >= 3.28
+BuildRequires:	perl-URI
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -49,17 +49,17 @@ Service Provider, however, are not signed.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL \
-	INSTALLDIRS=vendor
-%{__make}
+%{__perl} Build.PL \
+	destdir=$RPM_BUILD_ROOT \
+	installdirs=vendor
+./Build
 
-%{?with_tests:%{__make} test}
+%{?with_tests:./Build test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} pure_install \
-	DESTDIR=$RPM_BUILD_ROOT
+./Build install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
