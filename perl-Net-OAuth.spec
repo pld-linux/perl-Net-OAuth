@@ -8,13 +8,13 @@
 Summary:	Net::OAuth - OAuth protocol support
 #Summary(pl.UTF-8):
 Name:		perl-Net-OAuth
-Version:	0.27
+Version:	0.28
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/K/KG/KGRENNAN/Net-OAuth-%{version}.tar.gz
-# Source0-md5:	6b7a854c8c848ba08e5e0703bdfd8c95
+# Source0-md5:	336d7fb22e945f014e1bce0f49fcfad9
 URL:		http://search.cpan.org/dist/Net-OAuth/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
