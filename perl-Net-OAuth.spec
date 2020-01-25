@@ -4,7 +4,6 @@
 
 %define		pdir	Net
 %define		pnam	OAuth
-%include	/usr/lib/rpm/macros.perl
 Summary:	Net::OAuth - OAuth protocol support
 #Summary(pl.UTF-8):
 Name:		perl-Net-OAuth
